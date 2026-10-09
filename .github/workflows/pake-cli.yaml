@@ -171,6 +171,7 @@ jobs:
         timeout-minutes: 25
         shell: pwsh
         run: |
+          Remove-Item -LiteralPath "src-tauri\target\.pake-build.lock" -Force -ErrorAction SilentlyContinue
           $args = "${{ inputs.url }}", "--name", "${{ inputs.name }}"
 
           if ("${{ inputs.icon }}" -ne "") {
